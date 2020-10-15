@@ -1,62 +1,80 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
+import { Card, Badge } from '@material-ui/core';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'gatsby'
+import Img from "gatsby-image"
+import { slugify } from './../utils/utilityFunctions'
+
 
 const useStyles = makeStyles({
-    root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 140,
-    },
-  });
+  root: {
+    maxWidth: 345,
+  },
 
- const Posts = ({objKeys,title,excerpt}) => {
-     console.log("excerpt",excerpt)
-    const classes = useStyles();
-    return (
-        <Grid container >
-            {objKeys.map((k,i)=>{
-         return (
-            <Grid  key={i} item xs={6}>
-                  <Card className={classes.root}>
+  media: {
+    height: 140,
+  },
+});
+
+
+
+const Posts = ({ objKeys, excerpt, objValues }) => {
+  const classes = useStyles();
+  console.log("objValues.tags", objValues.tags)
+  return (
+
+
+    <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="https://en.wikipedia.org/wiki/Image#/media/File:Image_created_with_a_mobile_phone.png"
-          title="Contemplative Reptile"
-        />
+
+        <Img fixed={objValues.image} />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+          <Link to={objValues.path}>
+            <Typography gutterBottom variant="h5" component="h2">
+              {objValues.title}
+            </Typography>
+          </Link>
+          <Typography variant="body2" color="textSecondary" component="h2">
+            {excerpt}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+          <Typography variant="h6" gutterBottom component="p">
+            {`${objValues.date} by ${objValues.author}`}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
+        {objValues.tags.map((tag, k) =>
+          <Badge key={k}>
+            <Link to={`/tag/${slugify(tag)}`}>
+              <Button variant="contained" size="small" color="primary">
+
+                {tag.toUpperCase()}
+              </Button>
+            </Link>
+          </Badge>
+        )}
+
+        <div>
+
+          <Link to={objValues.path} >
+            <Button variant="contained" size="small" color="primary">
+
+              Ream More..
+            </Button>
+          </Link>
+        </div>
       </CardActions>
     </Card>
-                <li >{k}{title}</li>
-          </Grid>
-         )
-     })}
-        </Grid>
-    )
+
+
+
+  )
 }
 export default Posts
