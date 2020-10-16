@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = ({ siteTitle }) => {
   const classes = useStyles();
   return (
-    <div>
+    <div position="fixed">
       <Grid container xs={12} item  className={classes.root}>
         <AppBar position="static">
           <Toolbar>

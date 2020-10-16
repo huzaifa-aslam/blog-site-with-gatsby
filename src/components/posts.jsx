@@ -15,7 +15,7 @@ import { slugify } from './../utils/utilityFunctions'
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 600,
   },
 
   media: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
 
 const Posts = ({ objKeys, excerpt, objValues }) => {
   const classes = useStyles();
-  console.log("objValues.tags", objValues.tags)
+  // console.log("objValues.tags", objValues.tags)
   return (
 
 

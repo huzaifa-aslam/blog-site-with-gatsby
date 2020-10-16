@@ -3,9 +3,9 @@ import { graphql, StaticQuery } from 'gatsby'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Posts from './../components/posts'
-import Grid from '@material-ui/core/Grid';
+import {Grid,Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Sidebar from './../components/sidebar'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -26,15 +26,15 @@ const IndexPage = () => {
       <SEO title="Code Blog" keyword={['gatsby', 'application', 'react']} />
       {/* <h3>Home Page</h3> */}
       <div className={classes.root}>
-        <Grid container spacing={3}>
-          <Grid item xs={8}>
+        <Grid container >
+          <Grid item xs={8} >
             <StaticQuery query={postQuery}
               render={({ allMarkdownRemark }) => {
                 const getPosts = allMarkdownRemark.edges;
                 return (
 
                   getPosts.map(({ node }, index) => {
-                    console.log("node", node)
+                    // console.log("node", node)
                     const getPostData = node.frontmatter
                     const objValues = {
                       author: getPostData.author,
@@ -58,7 +58,8 @@ const IndexPage = () => {
               }} />
           </Grid>
           <Grid item xs={4}>
-            <h1>sklf</h1>
+            
+            <Sidebar/>
           </Grid>
         </Grid>
       </div>
@@ -84,7 +85,7 @@ query {
           tags
           image {
             childImageSharp {
-              fixed( width: 800, height: 300){
+              fixed( width: 600, height: 300){
           			  base64
   							  width
     							height
