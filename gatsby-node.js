@@ -1,7 +1,14 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+// const {slugify}=require('./src/utils/utilityFunctions')
 
-// You can delete this file if you're not using it
+exports.onCreateNode=({node,actions})=>{
+    const {createNodeField}=actions
+    console.log("node",node)
+    if(node.internal.type==='MarkdownRemark'){
+        const slugFromTitle=node.frontmatter.title
+        createNodeField({
+            node,
+            name: 'slug',
+            value: slugFromTitle,
+        })
+    }
+}

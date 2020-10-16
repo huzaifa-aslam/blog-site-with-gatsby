@@ -21,14 +21,16 @@ const Header = ({ siteTitle }) => {
   const classes = useStyles();
   return (
     <div position="fixed">
-      <Grid container xs={12} item  className={classes.root}>
+      <Grid container xs={12} item className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-           
+
             <Typography variant="h6" className={classes.title}>
-              News
-          </Typography>
-      
+              <Link className="link" to="/" >
+                News
+        </Link>
+            </Typography>
+
             <Link className="link" to="/about/" >
               About
         </Link>

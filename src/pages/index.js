@@ -6,6 +6,7 @@ import Posts from './../components/posts'
 import {Grid,Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Sidebar from './../components/sidebar'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
