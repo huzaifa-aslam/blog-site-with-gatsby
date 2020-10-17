@@ -2,7 +2,7 @@
 title: 'third post-JS'
 date: 14-10-2020
 author: 'huzaifa'
-path: '/third-post/'
+path: '/third-post'
 image: ../../images/blog.jpeg
 tags:
 - algoritham

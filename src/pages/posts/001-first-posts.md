@@ -2,7 +2,7 @@
 title: 'first post-CSS'
 date: 14-10-2020
 author: 'huzaifa'
-path: '/first-post/'
+path: '/first-post'
 image: ../../images/blog.jpeg
 tags:
 - code js

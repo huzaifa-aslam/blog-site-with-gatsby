@@ -4,7 +4,7 @@ exports.onCreateNode=({node,actions})=>{
     const {createNodeField}=actions
     console.log("node",node.frontmatter)
     if(node.internal.type=='MarkdownRemark'){
-        const text=node.frontmatter.title
+        const text=node.frontmatter.path
         const slugFromTitle=text.replace(/\s/g, '-').toLowerCase()
         createNodeField({
             node,
@@ -23,6 +23,10 @@ exports.createPages=async ({actions,graphql})=>{
             node {
               frontmatter {
                 author
+                date
+                path
+                tags
+                title
               }
               fields {
                 slug
@@ -39,7 +43,7 @@ exports.createPages=async ({actions,graphql})=>{
         path:node.fields.slug,
         component:path.resolve('./src/templates/single-posts.jsx'),
         context:{
-          itemDetails:node.fields.slug
+          itemDetails:node
         }
       })
   

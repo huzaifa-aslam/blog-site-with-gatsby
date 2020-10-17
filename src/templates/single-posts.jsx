@@ -14,7 +14,7 @@ import {graphql} from 'gatsby'
 // <div dangerouslySetInnerHTML={{__html:data.markDownRemark.html}} /> 
 // const singlePost=graphql`
 //     query singlePostBySlug($slug: String!){
-//         markDownRemark(fields: {path: {eq: $slug}}){
+//        markDownRemark(fields: {path: {eq: $slug}}){
 //             id
 //             html
 //             frontmatter{
