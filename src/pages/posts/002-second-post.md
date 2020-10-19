@@ -1,7 +1,7 @@
 ---
 title: 'second post-CSS'
 date: Dec-2-2020
-author: 'huzaifa'
+author: 'ali'
 image: ../../images/blog.jpeg
 tags:
 - design

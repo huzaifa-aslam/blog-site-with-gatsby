@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button } from '@material-ui/core';
-
+import AuthorDetail from './authorDetail/authordetail'
 import './sidebar.css'
 import RecentPosts from './RecentPosts/recentPosts'
 
@@ -34,12 +34,20 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Sidebar = () => {
+const Sidebar = ({ImageURL,postAuthor}) => {
+    console.log("data",ImageURL,postAuthor)
+    const AuthorObj={
+        ImageURL,
+        postAuthor
+    }
     const classes = useStyles();
     return (
         <div>
+               {postAuthor && (
+                   <AuthorDetail AuthorObj={AuthorObj}/>
+                )}
             <div className={classes.bgWhite} >
-
+             
                 <form className={classes.form} noValidate autoComplete="off">
                     <Typography>NEWSLETTER</Typography>
                     <TextField id="filled-basic" label="Filled" variant="filled" />

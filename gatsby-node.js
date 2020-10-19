@@ -1,5 +1,6 @@
 // const {slugify}=require('./src/utils/utilityFunctions')
 var path = require('path')
+var {authors} =require('./src/utils/author')
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
   // console.log("node",node.frontmatter)
@@ -28,6 +29,7 @@ exports.createPages=async ({actions,graphql})=>{
             }
             frontmatter {
               title
+              author
             }
           
           }
@@ -43,7 +45,7 @@ exports.createPages=async ({actions,graphql})=>{
             component:path.resolve('./src/templates/single-posts.jsx'),
             context:{
               slug:node.fields.slug,
-              check:"abc"
+              imgUrl:authors.find(x=>x.name==node.frontmatter.author).imgUrl
             }
           })
     

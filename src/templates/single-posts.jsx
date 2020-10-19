@@ -11,6 +11,7 @@ import { slugify } from './../utils/utilityFunctions'
 import { Link } from 'gatsby'
 import Layout from './../components/layout'
 import Sidebar from './../components/sidebar'
+import {authors} from './../utils/author'
 
 const useStyles = makeStyles({
     root: {
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
     },
 });
 
-const SinglePosts = ({ data }) => {
+const SinglePosts = ({ data,pageContext }) => {
 
     const classes = useStyles();
 
@@ -32,9 +33,12 @@ const SinglePosts = ({ data }) => {
         title: postData.title,
         tags: postData.tags,
         image: postData.image.childImageSharp.fixed,
-        excerpt: data.markdownRemark.excerpt
+        excerpt: data.markdownRemark.excerpt,
+        ImageURL: data.file.childImageSharp.fixed
+
     }
-    console.log("postDataObj", postDataObj)
+    const postAuthor=authors.find(x=>x.name===postDataObj.author).name
+    // console.log("ImageURL",postAuthor)
     return (
         <Layout>
             <SEO title={postDataObj.title} />
@@ -78,7 +82,7 @@ const SinglePosts = ({ data }) => {
                     </Card>
                 </Grid>
                 <Grid item xs={4} >
-                    <Sidebar />
+                    <Sidebar postAuthor={postAuthor} ImageURL={postDataObj.ImageURL}/>
                 </Grid>
             </Grid>
 
@@ -88,7 +92,7 @@ const SinglePosts = ({ data }) => {
 }
 // <div dangerouslySetInnerHTML={{__html:data.markDownRemark.html}} /> 
 export const singlePost = graphql`
-query singlePostQuery ($slug: String!) {
+query singlePostQuery ($slug: String!,$imgUrl: String!) {
     markdownRemark(fields: {slug: {eq: $slug}}) {
       fields {
         slug
@@ -114,6 +118,17 @@ query singlePostQuery ($slug: String!) {
       html
       excerpt
     }
+    file(relativePath: {eq: $imgUrl}){
+        childImageSharp {
+        fixed( width: 600, height: 300){
+             base64
+            width
+            height
+            src
+            srcSet
+        }
+      }
+  }
   }
   `
 // console.log("singlePost",singlePost)
