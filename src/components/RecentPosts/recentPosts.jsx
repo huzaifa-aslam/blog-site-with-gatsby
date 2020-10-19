@@ -30,7 +30,7 @@ export default function RecentPosts() {
           const getPostData = node.frontmatter
           const objValues = {
             title: getPostData.title,
-            path: getPostData.path,
+            slug: node.fields.slug,
             id: node.id,
             image: getPostData.image.childImageSharp.fixed
           }
@@ -40,8 +40,8 @@ export default function RecentPosts() {
           return (
             <Card key={index} className={classes.root}>
               <CardActionArea>
-               <Link to={objValues.path} target="_blank"> <Img fixed={objValues.image} /></Link>
-                <Link to={objValues.path}>
+               <Link to={objValues.slug} target="_blank"> <Img fixed={objValues.image} /></Link>
+                <Link to={objValues.slug}>
 
                   <Typography gutterBottom variant="h5" component="h2">
                     {objValues.title}
@@ -66,9 +66,11 @@ query MyQuery {
       edges {
         node {
           id
+          fields{
+            slug
+          }
           frontmatter {
             title
-            path
             image {
               childImageSharp {
                 fixed(width: 300){

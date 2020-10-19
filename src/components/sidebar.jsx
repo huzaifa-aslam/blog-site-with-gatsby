@@ -44,7 +44,7 @@ const Sidebar = () => {
                     <Typography>NEWSLETTER</Typography>
                     <TextField id="filled-basic" label="Filled" variant="filled" />
                     <Button variant="outlined" color="primary">
-                        Primary
+                        SUBSCRIBE
               </Button>
                 </form>
             </div>
@@ -52,12 +52,12 @@ const Sidebar = () => {
 
                 <form className={classes.form} noValidate autoComplete="off">
                     <Typography>ADVERTISEMENT</Typography>
-                    <img src="https://via.placeholder.com/320x200" />
+                    <img src="https://via.placeholder.com/320x200" alt="Image" />
 
                 </form>
             </div>
             <Typography >RCENT POSTS</Typography>
-            <RecentPosts/>
+            <RecentPosts />
         </div>
     )
 }

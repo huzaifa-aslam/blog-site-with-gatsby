@@ -1,11 +1,9 @@
 import React from 'react'
-import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, Badge } from '@material-ui/core';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'gatsby'
@@ -25,7 +23,7 @@ const useStyles = makeStyles({
 
 
 
-const Posts = ({ objKeys, excerpt, objValues }) => {
+const Posts = ({ excerpt, objValues }) => {
   const classes = useStyles();
   // console.log("objValues.tags", objValues.tags)
   return (
@@ -38,14 +36,14 @@ const Posts = ({ objKeys, excerpt, objValues }) => {
         <CardContent>
           <Link to={objValues.path}>
             <Typography gutterBottom variant="h5" component="h2">
-              {objValues.title}
+              {objValues.title.toUpperCase()}
             </Typography>
           </Link>
           <Typography variant="body2" color="textSecondary" component="h2">
             {excerpt}
           </Typography>
           <Typography variant="h6" gutterBottom component="p">
-            {`${objValues.date} by ${objValues.author}`}
+            {`${objValues.date} by ${objValues.author.toUpperCase()}`}
           </Typography>
         </CardContent>
       </CardActionArea>

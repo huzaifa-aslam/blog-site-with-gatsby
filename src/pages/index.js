@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Posts from './../components/posts'
-import {Grid,Typography} from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Sidebar from './../components/sidebar'
 
@@ -40,12 +40,12 @@ const IndexPage = () => {
                     const objValues = {
                       author: getPostData.author,
                       title: getPostData.title,
-                      path: getPostData.path,
+                      path: node.fields.slug,
                       date: getPostData.date,
                       tags: getPostData.tags,
                       image: getPostData.image.childImageSharp.fixed
                     }
-                    // console.log("getPostData",getPostData)
+                    // console.log("image",objValues.image)
 
                     return (
 
@@ -59,8 +59,8 @@ const IndexPage = () => {
               }} />
           </Grid>
           <Grid item xs={4}>
-            
-            <Sidebar/>
+
+            <Sidebar />
           </Grid>
         </Grid>
       </div>
@@ -74,15 +74,17 @@ const IndexPage = () => {
 
 const postQuery = graphql`
 query {
-  allMarkdownRemark {
+  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
     edges {
       node {
         id
+        fields {
+          slug
+        }
         frontmatter {
           title
           date
           author
-          path
           tags
           image {
             childImageSharp {
@@ -96,6 +98,7 @@ query {
             }
           }
         }
+
         excerpt
       }
     }
