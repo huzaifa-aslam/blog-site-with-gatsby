@@ -37,8 +37,13 @@ const SinglePosts = ({ data,pageContext }) => {
         ImageURL: data.file.childImageSharp.fixed
 
     }
-    const postAuthor=authors.find(x=>x.name===postDataObj.author).name
-    // console.log("ImageURL",postAuthor)
+    const postAuthor=authors.find(x=>x.name===postData.author)
+
+    // const AuthorDetail={
+    //     name:postAuthor.name,
+    //     disc:postAuthor.disc
+    // }
+    console.log("ImageURL",postDataObj.ImageURL,pageContext.imgUrl)
     return (
         <Layout>
             <SEO title={postDataObj.title} />

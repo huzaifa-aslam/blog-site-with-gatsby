@@ -35,16 +35,12 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Sidebar = ({ImageURL,postAuthor}) => {
-    console.log("data",ImageURL,postAuthor)
-    const AuthorObj={
-        ImageURL,
-        postAuthor
-    }
+   
     const classes = useStyles();
     return (
         <div>
                {postAuthor && (
-                   <AuthorDetail AuthorObj={AuthorObj}/>
+                   <AuthorDetail postAuthor={postAuthor} ImageURL={ImageURL}/>
                 )}
             <div className={classes.bgWhite} >
              

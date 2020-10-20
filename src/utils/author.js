@@ -8,7 +8,7 @@ const authors=[
     },
     {
         name:"ali",
-        imgUrl: 'huzaifa.jpg',
+        imgUrl: 'ali.jpg',
         gitHub: 'gitHub.com/huzaifa-aslam',
         disc: 'React developer'
 
