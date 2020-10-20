@@ -37,11 +37,10 @@ const AuthorDetail = ({ ImageURL, postAuthor }) => {
                 </CardContent>
             </CardActionArea>
             <CardActions  style={{display:"block"}}>
-                <FacebookIcon />
-                <InstagramIcon />
-                <YouTubeIcon />
-                <TwitterIcon />
-                <LinkedInIcon />
+                <FacebookIcon color="primary"/>
+                <YouTubeIcon style={{color:"#e73e30"}}/>
+                <TwitterIcon  style={{color:"#5ea9dd"}}/>
+                <LinkedInIcon  style={{color:"#0077b5"}}/>
             </CardActions>
         </Card>
     );

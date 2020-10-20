@@ -6,12 +6,19 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import { Typography, Badge, Button, CardMedia, Grid } from '@material-ui/core';
+import { Typography, Badge, Button, Grid } from '@material-ui/core';
 import { slugify } from './../utils/utilityFunctions'
 import { Link } from 'gatsby'
 import Layout from './../components/layout'
 import Sidebar from './../components/sidebar'
-import {authors} from './../utils/author'
+import { authors } from './../utils/author'
+import FacebookIcon from '@material-ui/icons/Facebook';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import { DiscussionEmbed } from 'disqus-react';
+
+
 
 const useStyles = makeStyles({
     root: {
@@ -22,9 +29,11 @@ const useStyles = makeStyles({
     },
 });
 
-const SinglePosts = ({ data,pageContext }) => {
+const SinglePosts = ({ data, pageContext }) => {
 
     const classes = useStyles();
+
+   
 
     const postData = data.markdownRemark.frontmatter
     const postDataObj = {
@@ -36,14 +45,24 @@ const SinglePosts = ({ data,pageContext }) => {
         excerpt: data.markdownRemark.excerpt,
         ImageURL: data.file.childImageSharp.fixed
 
-    }
-    const postAuthor=authors.find(x=>x.name===postData.author)
 
-    // const AuthorDetail={
-    //     name:postAuthor.name,
-    //     disc:postAuthor.disc
-    // }
-    console.log("ImageURL",postDataObj.ImageURL,pageContext.imgUrl)
+    }
+
+    const baseUrl='https://gatsbytutorial.co.uk/'
+
+    // disqus plugin start here
+    const disqusShortName='https-gatsbytutorial-co-uk'
+    const disqusConfig={
+        indentifier:data.markdownRemark.id,
+        title:postData.title,
+        url:baseUrl+pageContext.slug
+    }
+
+    // disqus plugin end here
+
+    const postAuthor = authors.find(x => x.name === postData.author)
+    // const baseUrl = 'https://gatsbttutorial.co.uk/'
+    console.log("disqusConfig", disqusConfig)
     return (
         <Layout>
             <SEO title={postDataObj.title} />
@@ -57,10 +76,7 @@ const SinglePosts = ({ data,pageContext }) => {
                                 {postDataObj.title.toUpperCase()}
                             </Typography>
                             <Img fixed={postDataObj.image} />
-                            {/* <CardMedia
-                        className={classes.media}
-                        title="Contemplative Reptile"
-                    ></CardMedia> */}
+
                             <Typography gutterBottom variant="h5" component="h2">
                                 {`${postDataObj.date} by ${postDataObj.author.toUpperCase()}`}
                             </Typography>
@@ -82,12 +98,39 @@ const SinglePosts = ({ data,pageContext }) => {
                                     </Link>
                                 </Badge>
                             )}
-
+                            <br />
                         </CardActions>
+
+
+                        <div style={{ textAlign: 'center' }}>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                Share Post
+                            </Typography>
+                            <a href={'https://www.facebook.com/sharer/sharer.php/?u=' + baseUrl + pageContext.slug} target="_blank" >
+
+                                <FacebookIcon color="primary" style={{ padding: '5px' }} />
+                            </a>
+                            <a href={'https://plus.goole.com/share?url='+baseUrl+pageContext.slug} target="_blank">
+
+                            <YouTubeIcon style={{ color: "#e73e30", padding: '5px' }} />
+                            </a>
+                            <a href={'https://twitter.com/share?url='+baseUrl+pageContext.slug+'&text='+postDataObj.title+'&via'+'twitterHandle'} target="_blank">
+
+                            <TwitterIcon style={{ color: "#5ea9dd", padding: '5px' }} />
+
+                            </a>
+                            <a to={'https://www.linkedin.com/shareArticle?url='+baseUrl+pageContext.slug}>
+
+                            <LinkedInIcon style={{ color: "#0077b5", padding: '5px' }} />
+
+                            </a>
+                            
+                        </div>
                     </Card>
+                        <DiscussionEmbed shortname={disqusShortName} config={disqusConfig}/>
                 </Grid>
                 <Grid item xs={4} >
-                    <Sidebar postAuthor={postAuthor} ImageURL={postDataObj.ImageURL}/>
+                    <Sidebar postAuthor={postAuthor} ImageURL={postDataObj.ImageURL} />
                 </Grid>
             </Grid>
 

@@ -1,0 +1,20 @@
+const baseUrl= 'https://gatsbttutorial.co.uk/'
+
+**********facebook*****************
+
+'https://www.facebook.com/sharer/sharer.php/?u='+baseUrl+pageContext.slug
+
+**********twiter*****************
+
+
+'https://twitter.com/share?url='+baseUrl+pageContext.slug+'&text='+post.title+'&via'+'twitterHandle'
+
+**********google*****************
+
+'https://plus.goole.com/share?url='+baseUrl+pageContext.slug
+
+**********linkedIn*****************
+
+'https://www.linkedin.com/shareArticle?url='+baseUrl+pageContext.slug
+
+target="_blank" ref="noopener noreferrer" 
