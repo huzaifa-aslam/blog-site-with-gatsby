@@ -40,11 +40,11 @@ export default function RecentPosts() {
           return (
             <Card key={index} className={classes.root}>
               <CardActionArea>
-               <Link to={objValues.slug} target="_blank"> <Img fixed={objValues.image} /></Link>
+               <Link to={objValues.slug} target="_blank"> <Img style={{width: '320px'}} fixed={objValues.image} /></Link>
                 <Link to={objValues.slug}>
 
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {objValues.title}
+                  <Typography gutterBottom variant="h6" style={{textAlign:'center'}} color="secondary" component="h2">
+                    {objValues.title.toUpperCase()}
                   </Typography>
                 </Link>
 

@@ -1,3 +1,5 @@
 npm install gatsby-transformer-remark
 
 npm i disqus-react
+
+npm i lodash

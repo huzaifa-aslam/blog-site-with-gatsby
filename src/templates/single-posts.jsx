@@ -72,12 +72,12 @@ const SinglePosts = ({ data, pageContext }) => {
                 <Grid item xs={8} >
                     <Card className={classes.root}>
                         <CardActionArea>
-                            <Typography gutterBottom variant="h5" component="h2">
+                            <Typography gutterBottom variant="h6" style={{textAlign:'center'}} component="h2">
                                 {postDataObj.title.toUpperCase()}
                             </Typography>
                             <Img fixed={postDataObj.image} />
 
-                            <Typography gutterBottom variant="h5" component="h2">
+                            <Typography gutterBottom variant="h6" component="h2">
                                 {`${postDataObj.date} by ${postDataObj.author.toUpperCase()}`}
                             </Typography>
                             <CardContent>
@@ -127,7 +127,7 @@ const SinglePosts = ({ data, pageContext }) => {
                             
                         </div>
                     </Card>
-                        <DiscussionEmbed shortname={disqusShortName} config={disqusConfig}/>
+                        <DiscussionEmbed style={{width:'94%'}} shortname={disqusShortName} config={disqusConfig}/>
                 </Grid>
                 <Grid item xs={4} >
                     <Sidebar postAuthor={postAuthor} ImageURL={postDataObj.ImageURL} />

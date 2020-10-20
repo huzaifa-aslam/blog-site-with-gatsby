@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Img from "gatsby-image"
 import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -24,7 +23,7 @@ const AuthorDetail = ({ ImageURL, postAuthor }) => {
     return (
         <Card className={classes.root}>
             <CardActionArea>
-                <Img fixed={ImageURL} />
+                <Img  fixed={ImageURL} />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {postAuthor.name[0].toUpperCase() +

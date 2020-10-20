@@ -27,8 +27,8 @@ const IndexPage = () => {
       <SEO title="Code Blog" keyword={['gatsby', 'application', 'react']} />
       {/* <h3>Home Page</h3> */}
       <div className={classes.root}>
-        <Grid container >
-          <Grid item xs={8} >
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={8}>
             <StaticQuery query={postQuery}
               render={({ allMarkdownRemark }) => {
                 const getPosts = allMarkdownRemark.edges;
@@ -58,7 +58,7 @@ const IndexPage = () => {
                 )
               }} />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item  xs={12} sm={4}>
 
             <Sidebar />
           </Grid>

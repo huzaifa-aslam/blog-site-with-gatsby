@@ -34,8 +34,8 @@ const Posts = ({ excerpt, objValues }) => {
 
         <Img fixed={objValues.image} />
         <CardContent>
-          <Link to={objValues.path}>
-            <Typography gutterBottom variant="h5" component="h2">
+          <Link to={objValues.path} >
+            <Typography gutterBottom variant="h6" color="secondary" component="h2">
               {objValues.title.toUpperCase()}
             </Typography>
           </Link>

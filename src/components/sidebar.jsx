@@ -4,6 +4,7 @@ import { Typography, TextField, Button } from '@material-ui/core';
 import AuthorDetail from './authorDetail/authordetail'
 import './sidebar.css'
 import RecentPosts from './RecentPosts/recentPosts'
+import NewsLetter from './NewsLetter/newsLetter'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,41 +27,35 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     bgWhite: {
+        height:' 175px',
         backgroundColor: 'white',
-        height: '175px',
-        width: '219px',
+        textAlign: 'center',
+        marginTop: '16px'
     }
 
 }));
 
 
-const Sidebar = ({ImageURL,postAuthor}) => {
-   
+const Sidebar = ({ ImageURL, postAuthor }) => {
+
     const classes = useStyles();
     return (
         <div>
-               {postAuthor && (
-                   <AuthorDetail postAuthor={postAuthor} ImageURL={ImageURL}/>
-                )}
-            <div className={classes.bgWhite} >
-             
-                <form className={classes.form} noValidate autoComplete="off">
-                    <Typography>NEWSLETTER</Typography>
-                    <TextField id="filled-basic" label="Filled" variant="filled" />
-                    <Button variant="outlined" color="primary">
-                        SUBSCRIBE
-              </Button>
-                </form>
-            </div>
+            {postAuthor && (
+                <AuthorDetail postAuthor={postAuthor} ImageURL={ImageURL} />
+            )}
+            <NewsLetter />
             <div className={classes.bgWhite} >
 
-                <form className={classes.form} noValidate autoComplete="off">
-                    <Typography>ADVERTISEMENT</Typography>
-                    <img src="https://via.placeholder.com/320x200" alt="Image" />
+                <Typography gutterBottom variant="h6" style={{ textAlign: 'center' }}  component="h2">
+                ADVERTISEMENT
+                  </Typography>
+                    <img style={{width: '320px',height: '139px'}} src="https://via.placeholder.com/150" alt="Image" />
 
-                </form>
             </div>
-            <Typography >RCENT POSTS</Typography>
+            <Typography gutterBottom variant="h6" style={{ textAlign: 'center' }}  component="h2">
+                RCENT POSTS
+                  </Typography>
             <RecentPosts />
         </div>
     )
