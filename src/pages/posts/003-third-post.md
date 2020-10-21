@@ -5,6 +5,7 @@ author: 'huzaifa'
 image: ../../images/blog.jpeg
 tags:
 - algoritham
+- tutorial
 ---
 
 third-post

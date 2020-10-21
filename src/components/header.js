@@ -34,7 +34,7 @@ const Header = ({ siteTitle }) => {
             <Link className="link" to="/about/" >
               About
         </Link>
-            <Link className="link" to="/tags/" >
+            <Link className="link" to="/tags" >
               Tags
         </Link>
             <Link className="link" to="/team/" >

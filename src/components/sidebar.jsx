@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, TextField, Button } from '@material-ui/core';
+import { Typography} from '@material-ui/core';
 import AuthorDetail from './authorDetail/authordetail'
 import './sidebar.css'
 import RecentPosts from './RecentPosts/recentPosts'
@@ -50,7 +50,7 @@ const Sidebar = ({ ImageURL, postAuthor }) => {
                 <Typography gutterBottom variant="h6" style={{ textAlign: 'center' }}  component="h2">
                 ADVERTISEMENT
                   </Typography>
-                    <img style={{width: '320px',height: '139px'}} src="https://via.placeholder.com/150" alt="Image" />
+                    <img style={{width: '320px',height: '139px'}} src="https://via.placeholder.com/150" alt="resentPost" />
 
             </div>
             <Typography gutterBottom variant="h6" style={{ textAlign: 'center' }}  component="h2">

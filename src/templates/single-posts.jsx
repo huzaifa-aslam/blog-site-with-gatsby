@@ -62,7 +62,7 @@ const SinglePosts = ({ data, pageContext }) => {
 
     const postAuthor = authors.find(x => x.name === postData.author)
     // const baseUrl = 'https://gatsbttutorial.co.uk/'
-    console.log("disqusConfig", disqusConfig)
+    // console.log("disqusConfig", disqusConfig)
     return (
         <Layout>
             <SEO title={postDataObj.title} />
@@ -90,7 +90,7 @@ const SinglePosts = ({ data, pageContext }) => {
                         <CardActions>
                             {postDataObj.tags.map((tag, k) =>
                                 <Badge key={k}>
-                                    <Link to={`/tag/${slugify(tag)}`}>
+                                    <Link to={`/tags/${slugify(tag)}/`}>
                                         <Button variant="contained" size="small" color="primary">
 
                                             {tag.toUpperCase()}

@@ -19,6 +19,7 @@
     "gatsby-source-filesystem": "^2.3.32",
     "gatsby-transformer-remark": "^2.8.39",
     "gatsby-transformer-sharp": "^2.5.16",
+    "lodash": "^4.17.20",
     "mdi-material-ui": "^6.19.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

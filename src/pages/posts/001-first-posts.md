@@ -4,7 +4,7 @@ date: Dec-1-2020
 author: 'huzaifa'
 image: ../../images/blog.jpeg
 tags:
-- code js
+- code
 ---
 
 first-post

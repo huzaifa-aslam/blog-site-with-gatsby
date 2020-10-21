@@ -50,7 +50,7 @@ const Posts = ({ excerpt, objValues }) => {
       <CardActions>
         {objValues.tags.map((tag, k) =>
           <Badge key={k}>
-            <Link to={`/tag/${slugify(tag)}`}>
+            <Link to={`/tags/${slugify(tag)}/`}>
               <Button variant="contained" size="small" color="primary">
 
                 {tag.toUpperCase()}

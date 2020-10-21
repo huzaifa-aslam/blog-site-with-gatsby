@@ -5,6 +5,7 @@ author: 'ali'
 image: ../../images/blog.jpeg
 tags:
 - design
+- code
 ---
 
 second-post
