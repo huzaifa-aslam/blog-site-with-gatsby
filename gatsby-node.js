@@ -21,7 +21,8 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const templates = {
     tagsPage: path.resolve('./src/templates/tags-page.jsx'),
-    singleTagPage: path.resolve('./src/templates/single-tag-page.jsx')
+    singleTagPage: path.resolve('./src/templates/single-tag-page.jsx'),
+    PaginationList: path.resolve('./src/templates/pagination-list.jsx'),
 
 
   }
@@ -96,6 +97,23 @@ exports.createPages = async ({ actions, graphql }) => {
         component: templates.singleTagPage,
         context:{
           tag
+        }
+      })
+    })
+
+    // create pagination
+
+    const postPerPage=2
+    const numberOfPosts=Math.ceil(postPerPage/2)
+    Array.from({length:numberOfPosts}).forEach((_,index)=>{
+      const currentPage=index+1
+      createPage({
+        path:`/page/${currentPage}`,
+        component:templates.PaginationList,
+        context:{
+          limit:postPerPage,
+          skip:postPerPage*index,
+          currentPage
         }
       })
     })
