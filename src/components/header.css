@@ -3,4 +3,17 @@
     text-decoration: none;
     width: 6%;
     font-size: 18px;
+    padding: 10px;
+}
+
+.head{
+
+    text-align: center;
+    width: 89%;
+
+}
+
+.logo{
+    width: 46px;
+    padding-top: 10px;
 }

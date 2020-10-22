@@ -4,6 +4,7 @@ import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, Button, Grid } from '@material-ui/core';
 import './header.css'
+import gatsbyIcon from './../images/gatsby-icon.png'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,12 +26,13 @@ const Header = ({ siteTitle }) => {
         <AppBar position="static">
           <Toolbar>
 
-            <Typography variant="h6" className={classes.title}>
+            <Typography  >
               <Link className="link" to="/" >
-                News
+                {/* CODE BLOG */}
+                <img className="logo" src={gatsbyIcon}/>
         </Link>
             </Typography>
-
+            <div className="head">
             <Link className="link" to="/about/" >
               About
         </Link>
@@ -40,6 +42,8 @@ const Header = ({ siteTitle }) => {
             <Link className="link" to="/team/" >
               Team
         </Link>
+            </div>
+           
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>

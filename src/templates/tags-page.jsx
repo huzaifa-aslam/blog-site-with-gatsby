@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import { Link } from 'gatsby'
 import {slugify} from './../utils/utilityFunctions'
 import SEO from './../components/seo'
+import Layout from './../components/layout'
+import Sidebar from './../components/sidebar'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,10 +26,10 @@ const TagsPage = ({ pageContext }) => {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <Layout className={classes.root}>
             <SEO title="Tags-Page" />
             <Grid container >
-                <Grid item xs={12} sm={8}>
+                <Grid item xs={12} sm={6} md={8} lg={8}>
                     <div className={classes.tags}>
 
                         {Object.keys(tagsCount).map((tag, index) => {
@@ -41,13 +43,14 @@ const TagsPage = ({ pageContext }) => {
                         })}
                     </div>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} sm={6} md={4} lg={4}>
+                    <Sidebar/>
                 </Grid>
 
             </Grid>
 
 
-        </div>
+        </Layout>
     );
 }
 

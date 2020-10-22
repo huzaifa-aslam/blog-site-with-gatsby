@@ -4,38 +4,58 @@ import Sidebar from './../components/sidebar'
 import moduleName from './../utils/author'
 import Img from "gatsby-image"
 import Posts from './../components/posts'
+import { Grid, Typography } from '@material-ui/core';
+import Authordetail from './../components/authorDetail/authordetail'
+import { authors } from './../utils/author'
+
 
 const AuthorPosts = ({ data, pageContext }) => {
 
-    const postData = data.allMarkdownRemark.edges
-    // const postDataObj = {
-    //     author: postData.author,
-    //     date: postData.date,
-    //     title: postData.title,
-    //     tags: postData.tags,
-    //     image: postData.image.childImageSharp.fixed,
-    //     excerpt: data.markdownRemark.excerpt,
-    //     ImageURL: data.file.childImageSharp.fixed
+  const postData = data.allMarkdownRemark.edges
+  const authorName = data.allMarkdownRemark.edges[0].node.frontmatter.author
+  const postAuthor = authors.find(n => n.name === authorName)
+  const totalPost = data.allMarkdownRemark.totalCount
+  const ImageURL = data.file.childImageSharp.fixed
+
+  // console.log("findAuthor", findAuthor)
+  return (
+    <Layout>
+      <Grid container spacing={3}>
+
+        <Grid item xs={12} sm={6} md={8} lg={8}>
+          <Typography style={{textAlign:'center'}} gutterBottom variant="h6" color="primary" component="h2">
+            {`${totalPost} POST${totalPost === 1 ? '' : 's'} by ${authorName}`}
+          </Typography>
+          {
+            postData.map(({ node }, index) => {
+              const excerpt = node.excerpt
+              const objValues = {
+                author: node.frontmatter.author,
+                date: node.frontmatter.date,
+                title: node.frontmatter.title,
+                tags: node.frontmatter.tags,
+                path: node.fields.slug,
+                image: node.frontmatter.image.childImageSharp.fixed,
+                // ImageURL: data.file.childImageSharp.fixed
 
 
 
-    // }
-    console.log(data)
-    return (
-        <Layout>
-            <Grid container spacing={3}>
+              }
 
-                <Grid item xs={12} sm={6} md={8} lg={8}>
-            
-                    {/* <Posts /> */}
-                </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={4}>
-                    <Sidebar />
-                </Grid>
-            </Grid>
+              return (
+                <Posts key={index} objValues={objValues} excerpt={excerpt} />
+              )
+            })
+          }
+        </Grid>
+        <Grid item xs={12} sm={6} md={4} lg={4}>
+          <Authordetail ImageURL={ImageURL} postAuthor={postAuthor} />
+          <Sidebar />
+        </Grid>
+      </Grid>
 
-        </Layout>
-    )
+    </Layout>
+  )
 }
 
 export const authorPostQuery = graphql`
@@ -44,6 +64,7 @@ export const authorPostQuery = graphql`
     totalCount
     edges {
       node {
+        excerpt
         fields {
           slug
         }
