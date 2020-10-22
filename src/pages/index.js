@@ -74,7 +74,7 @@ const IndexPage = () => {
 
 const postQuery = graphql`
 query {
-  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+  allMarkdownRemark(limit: 2,sort: {fields: [frontmatter___date], order: DESC}) {
     edges {
       node {
         id

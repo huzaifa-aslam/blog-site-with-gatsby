@@ -1,6 +1,5 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import SEO from './../components/seo'
 import Layout from './../components/layout'
@@ -34,15 +33,18 @@ const SingleTagPage = ({ data, pageContext }) => {
   const { tag } = pageContext
   const postData = data.allMarkdownRemark.edges
   const totalPost = data.allMarkdownRemark.totalCount
-  console.log('totalPost',totalPost)
+  console.log('totalPost', totalPost)
 
-  
+
   return (
     <Layout className={classes.root}>
       <SEO title="Single-Tag-Page" />
       <Grid container spacing={3}>
 
         <Grid item xs={12} sm={6} md={8} lg={8}>
+          <Typography gutterBottom variant="h6" style={{ textAlign: 'center' }} component="h2">
+            {`${totalPost} Post${totalPost === 1 ? '' : 's'} With "${tag}"`}
+          </Typography>
           {postData.map(({ node }, index) => {
             const postDataObj = {
               author: node.frontmatter.author,
@@ -51,6 +53,7 @@ const SingleTagPage = ({ data, pageContext }) => {
               tags: node.frontmatter.tags,
               image: node.frontmatter.image.childImageSharp.fixed,
               excerpt: node.excerpt,
+              slug:node.fields.slug
 
 
             }
@@ -59,10 +62,14 @@ const SingleTagPage = ({ data, pageContext }) => {
             return (
               <Card key={index} className={classes.card}>
                 <CardActionArea>
-                  <Typography gutterBottom variant="h6" style={{ textAlign: 'center' }} component="h2">
-                    {`${totalPost} Post ${totalPost ===1 ? '' : 's'} With "${tag}"`}
-                  </Typography>
+
                   <Img fixed={postDataObj.image} />
+
+                  <Link to={slugify(postDataObj.slug)} >
+                    <Typography gutterBottom variant="h6" color="secondary" component="h2">
+                    {postDataObj.title.toUpperCase()}
+                    </Typography>
+                  </Link>
 
                   <Typography gutterBottom variant="h6" component="h2">
                     {`${postDataObj.date} by ${postDataObj.author.toUpperCase()}`}

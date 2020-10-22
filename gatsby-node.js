@@ -104,11 +104,13 @@ exports.createPages = async ({ actions, graphql }) => {
     // create pagination
 
     const postPerPage=2
-    const numberOfPosts=Math.ceil(postPerPage/2)
+    const numberOfPosts=Math.ceil(posts.length/postPerPage)
     Array.from({length:numberOfPosts}).forEach((_,index)=>{
+      // const isFirstPage=index===0
       const currentPage=index+1
+      // if(isFirstPage) return
       createPage({
-        path:`/page/${currentPage}`,
+        path:`/page/${currentPage}/`,
         component:templates.PaginationList,
         context:{
           limit:postPerPage,
