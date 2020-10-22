@@ -6,6 +6,7 @@ import Posts from './../components/posts'
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Sidebar from './../components/sidebar'
+import Pagination from './../components/Pagination/pagination'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,9 +17,15 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  pagination:{
+    textAlign: 'center',
+    paddingTop: '53px',
+  },
 }));
 const IndexPage = () => {
   const classes = useStyles();
+  let postPerPage
+  let numberOfPages;
 
 
   return (
@@ -32,6 +39,8 @@ const IndexPage = () => {
             <StaticQuery query={postQuery}
               render={({ allMarkdownRemark }) => {
                 const getPosts = allMarkdownRemark.edges;
+                postPerPage=2
+                numberOfPages=Math.ceil(allMarkdownRemark.totalCount/postPerPage)
                 return (
 
                   getPosts.map(({ node }, index) => {
@@ -57,8 +66,12 @@ const IndexPage = () => {
 
                 )
               }} />
+            <div className={classes.pagination}>
+
+              {/* <Pagination currentPage={1} numberOfPages={numberOfPages}/> */}
+            </div>
           </Grid>
-          <Grid item  xs={12} sm={4}>
+          <Grid item xs={12} sm={4}>
 
             <Sidebar />
           </Grid>
@@ -75,6 +88,7 @@ const IndexPage = () => {
 const postQuery = graphql`
 query {
   allMarkdownRemark(limit: 2,sort: {fields: [frontmatter___date], order: DESC}) {
+    totalCount
     edges {
       node {
         id
@@ -106,5 +120,4 @@ query {
 }
 
 `
-
 export default IndexPage

@@ -1,6 +1,6 @@
 
 import React from 'react'
-
+import Pagination from './../components/Pagination/pagination'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -22,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  pagination: {
+    textAlign: 'center',
+    paddingTop: '53px',
+  },
   card: {
     maxWidth: 600
   },
@@ -40,7 +44,8 @@ const PaginationList = ({ data, pageContext }) => {
   const postData = data.allMarkdownRemark.edges
 
   console.log("postData", postData)
-  const { limit } = pageContext
+  const { limit, currentPage,numberOfPosts } = pageContext
+  // console.log("pagination-list", currentPage, numberOfPosts)
   return (
     <Layout className={classes.root}>
       <SEO title="Single-Tag-Page" />
@@ -55,7 +60,7 @@ const PaginationList = ({ data, pageContext }) => {
               tags: node.frontmatter.tags,
               image: node.frontmatter.image.childImageSharp.fixed,
               excerpt: node.excerpt,
-              slug:node.fields.slug
+              slug: node.fields.slug
 
 
             }
@@ -65,11 +70,11 @@ const PaginationList = ({ data, pageContext }) => {
               <Card key={index} className={classes.card}>
                 <CardActionArea>
                   <Img fixed={postDataObj.image} />
-               
+
 
                   <Link to={slugify(postDataObj.slug)} >
                     <Typography gutterBottom variant="h6" color="secondary" component="h2">
-                    {postDataObj.title.toUpperCase()}
+                      {postDataObj.title.toUpperCase()}
                     </Typography>
                   </Link>
 
@@ -103,7 +108,10 @@ const PaginationList = ({ data, pageContext }) => {
             )
 
           })}
+          <div className={classes.pagination}>
 
+            {/* <Pagination numberOfPosts={numberOfPosts} currentPage={currentPage}/> */}
+          </div>
 
         </Grid>
 

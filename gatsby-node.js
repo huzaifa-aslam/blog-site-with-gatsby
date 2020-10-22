@@ -115,9 +115,11 @@ exports.createPages = async ({ actions, graphql }) => {
         context:{
           limit:postPerPage,
           skip:postPerPage*index,
-          currentPage
+          currentPage,
+          numberOfPosts,
+            
         }
-      })
+      })  
     })
 
 
