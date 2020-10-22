@@ -33,7 +33,7 @@ const SingleTagPage = ({ data, pageContext }) => {
   const { tag } = pageContext
   const postData = data.allMarkdownRemark.edges
   const totalPost = data.allMarkdownRemark.totalCount
-  console.log('totalPost', totalPost)
+  // console.log('totalPost', totalPost)
 
 
   return (
@@ -57,7 +57,7 @@ const SingleTagPage = ({ data, pageContext }) => {
 
 
             }
-            console.log("postDataObj.author", postDataObj.author)
+            // console.log("postDataObj.author", postDataObj.author)
 
             return (
               <Card key={index} className={classes.card}>

@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 const AuthorDetail = ({ ImageURL, postAuthor }) => {
     const classes = useStyles();
-    console.log("AuthorObj", ImageURL, postAuthor)
+    // console.log("AuthorObj", ImageURL, postAuthor)
     return (
         <Card className={classes.root}>
             <CardActionArea>

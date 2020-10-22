@@ -23,6 +23,7 @@ exports.createPages = async ({ actions, graphql }) => {
     tagsPage: path.resolve('./src/templates/tags-page.jsx'),
     singleTagPage: path.resolve('./src/templates/single-tag-page.jsx'),
     PaginationList: path.resolve('./src/templates/pagination-list.jsx'),
+    authorPosts: path.resolve('./src/templates/authorPosts.jsx'),
 
 
   }
@@ -78,7 +79,7 @@ exports.createPages = async ({ actions, graphql }) => {
     tags.forEach(tag => {
       tagsCount[tag] = (tagsCount[tag] || 0) + 1
     })
-    console.log('tagsCount', tagsCount)
+    // console.log('tagsCount', tagsCount)
 
     // create allTags page
     createPage({
@@ -122,7 +123,35 @@ exports.createPages = async ({ actions, graphql }) => {
       })  
     })
 
+    // create team page
+    // let imgsUrl=[]
+    // authors.forEach(({ imgUrl }) => {
+    //   imgsUrl=imgsUrl.concat(imgUrl)
+    //   // create single post page
 
+    //   createPage({
+    //     path: '/team/',
+    //     component: path.resolve('./src/templates/team.jsx'),
+    //     context: {
+    //       imgsUrl,
+    //     }
+    //   })
+
+    // })
+
+
+    // create Autho's post 
+
+    authors.forEach((item)=>{
+      createPage({
+        path:`/author/${item.name.replace(/\s/g, '-').toLowerCase()}`,
+        component:templates.authorPosts,
+        context:{
+          authorName:item.name,
+          authorImgUrl:item.imgUrl
+        }
+      })
+    })
 
 
 
