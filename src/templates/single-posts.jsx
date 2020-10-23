@@ -70,7 +70,7 @@ const SinglePosts = ({ data, pageContext }) => {
             <div className={classes.root}></div>
             <Grid container >
 
-                <Grid item xs={12} lg={4} md={4} sm={6} >
+                <Grid item xs={12} lg={8} md={8} sm={6} >
                     <Card className={classes.root}>
                         <CardActionArea>
                             <Typography gutterBottom variant="h6" style={{textAlign:'center'}} component="h2">
