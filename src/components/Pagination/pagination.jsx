@@ -1,7 +1,6 @@
 import React from 'react'
 import './pagination.css'
-import {Link} from 'gatsby'
-const Pagination = ({ numberOfPages, currentPage }) => {
+const Pagination = ({currentPage, numberOfPages }) => {
     console.log("numberOfPages", numberOfPages, currentPage)
     const isFirst = currentPage === 1
     const isLast = currentPage === numberOfPages
@@ -11,22 +10,22 @@ const Pagination = ({ numberOfPages, currentPage }) => {
 
         <div className="pagination">
             {
-                isFirst ?(<Link to="/" disabled="disabled">&laquo;</Link>):(<Link to={prevPage} >&laquo;</Link>)
+                isFirst ?(<a href="/" disabled="disabled">&laquo;</a>):(<a href={prevPage} >&laquo;</a>)
             }
             {
                 Array.from({length: numberOfPages},(_,i)=>{
                     return (
 
-                        currentPage===i+1?(<Link key={`page-number${i+1}`} className="active" to={`/ ${i===0 ? '':'page'+(i+1)}`}>{i+1}</Link>)
+                        currentPage===i+1?(<a key={`page-number${i+1}`} className="active" href={`/ ${i===0 ? '':'page'+(i+1)}`}>{i+1}</a>)
                             :
-                            (<Link key={`page-number${i+1}`}  to={`/ ${i===0 ? '':'page'+(i+1)}`}>{i+1}</Link>)
+                            (<a key={`page-number${i+1}`}  href={`/ ${i===0 ? '':'page'+(i+1)}`}>{i+1}</a>)
                     )
                 })
             }
 
            
             {
-                isLast ? (<Link to={nextPage} aria-disabled>&raquo;</Link>):(<Link to={nextPage} >&raquo;</Link>)
+                isLast ? (<a href={nextPage} aria-disabled>&raquo;</a>):(<a href={nextPage} >&raquo;</a>)
             }
         </div>
     )

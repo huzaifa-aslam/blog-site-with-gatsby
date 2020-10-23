@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from './../components/layout'
 import Sidebar from './../components/sidebar'
-import moduleName from './../utils/author'
-import Img from "gatsby-image"
+
 import Posts from './../components/posts'
 import { Grid, Typography } from '@material-ui/core';
 import Authordetail from './../components/authorDetail/authordetail'
 import { authors } from './../utils/author'
+import { graphql } from 'gatsby'
 
 
 const AuthorPosts = ({ data, pageContext }) => {

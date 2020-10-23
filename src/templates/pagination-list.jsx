@@ -1,13 +1,13 @@
 
 import React from 'react'
-import Pagination from './../components/Pagination/pagination'
+// import Pagination from './../components/Pagination/pagination'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import SEO from './../components/seo'
 import Layout from './../components/layout'
 import { slugify } from './../utils/utilityFunctions'
-
+import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -43,8 +43,9 @@ const PaginationList = ({ data, pageContext }) => {
 
   const postData = data.allMarkdownRemark.edges
 
-  console.log("postData", postData)
-  const { limit, currentPage,numberOfPosts } = pageContext
+  // console.log("postData", postData)
+  // const   currentPage  = pageContext.currentPage
+  // const  numberOfPosts = pageContext.numberOfPosts
   // console.log("pagination-list", currentPage, numberOfPosts)
   return (
     <Layout className={classes.root}>
@@ -108,10 +109,10 @@ const PaginationList = ({ data, pageContext }) => {
             )
 
           })}
-          <div className={classes.pagination}>
+          {/* <div className={classes.pagination}>
 
-            {/* <Pagination numberOfPosts={numberOfPosts} currentPage={currentPage}/> */}
-          </div>
+            <Pagination numberOfPosts={2} currentPage={currentPage}/>
+          </div> */}
 
         </Grid>
 

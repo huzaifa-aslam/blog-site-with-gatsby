@@ -4,10 +4,8 @@ import Layout from "./../components/layout"
 import SEO from "./../components/seo"
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Img from "gatsby-image"
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
@@ -19,7 +17,6 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import { graphql } from 'gatsby'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,7 +68,6 @@ const Team = () => {
       </Typography>
             {
               authors.map((item, index) => {
-               let myImgUrl = item.imgUrl
              
                 // console.log(imgUrl)
                 return (

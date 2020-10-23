@@ -6,7 +6,7 @@ import Posts from './../components/posts'
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Sidebar from './../components/sidebar'
-import Pagination from './../components/Pagination/pagination'
+// import Pagination from './../components/Pagination/pagination'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,25 +22,25 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '53px',
   },
 }));
-const IndexPage = () => {
+const IndexPage = ({data}) => {
   const classes = useStyles();
-  let postPerPage
-  let numberOfPages;
+  // let postPerPage
+  // let numberOfPages;
+  console.log("data",data)
 
 
   return (
 
     <Layout>
       <SEO title="Code Blog" keyword={['gatsby', 'application', 'react']} />
-      {/* <h3>Home Page</h3> */}
       <div className={classes.root}>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={8}>
-            <StaticQuery query={postQuery}
+            <StaticQuery query= {postQuery}
               render={({ allMarkdownRemark }) => {
                 const getPosts = allMarkdownRemark.edges;
-                postPerPage=2
-                numberOfPages=Math.ceil(allMarkdownRemark.totalCount/postPerPage)
+                // postPerPage=2
+              //  let numberOfPages=Math.ceil(allMarkdownRemark.totalCount/postPerPage)
                 return (
 
                   getPosts.map(({ node }, index) => {

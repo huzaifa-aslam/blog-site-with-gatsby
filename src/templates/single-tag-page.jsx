@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import SEO from './../components/seo'
 import Layout from './../components/layout'
 import { slugify } from './../utils/utilityFunctions'
-
+import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';

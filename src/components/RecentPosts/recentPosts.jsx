@@ -33,7 +33,6 @@ export default function RecentPosts() {
             id: node.id,
             image: getPostData.image.childImageSharp.fixed
           }
-          console.log("objValues", objValues)
 
 
           return (

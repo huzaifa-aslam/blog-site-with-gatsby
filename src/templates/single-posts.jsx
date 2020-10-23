@@ -17,6 +17,7 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import { DiscussionEmbed } from 'disqus-react';
+import { graphql } from 'gatsby'
 
 
 
@@ -106,20 +107,20 @@ const SinglePosts = ({ data, pageContext }) => {
                             <Typography gutterBottom variant="h5" component="h2">
                                 Share Post
                             </Typography>
-                            <a href={'https://www.facebook.com/sharer/sharer.php/?u=' + baseUrl + pageContext.slug} target="_blank" >
+                            <a href={'https://www.facebook.com/sharer/sharer.php/?u='+baseUrl+pageContext.slug} target="_blank" rel="noreferrer">
 
                                 <FacebookIcon color="primary" style={{ padding: '5px' }} />
                             </a>
-                            <a href={'https://plus.goole.com/share?url='+baseUrl+pageContext.slug} target="_blank">
+                            <a href={'https://plus.goole.com/share?url='+baseUrl+pageContext.slug} target="_blank" rel="noreferrer">
 
                             <YouTubeIcon style={{ color: "#e73e30", padding: '5px' }} />
                             </a>
-                            <a href={'https://twitter.com/share?url='+baseUrl+pageContext.slug+'&text='+postDataObj.title+'&via'+'twitterHandle'} target="_blank">
+                            <a href={'https://twitter.com/share?url='+baseUrl+pageContext.slug+'&text='+slugify(postDataObj.title)+'&viatwitterHandle'} target="_blank" rel="noreferrer">
 
                             <TwitterIcon style={{ color: "#5ea9dd", padding: '5px' }} />
 
                             </a>
-                            <a to={'https://www.linkedin.com/shareArticle?url='+baseUrl+pageContext.slug}>
+                            <a href={'https://www.linkedin.com/shareArticle?url='+baseUrl+pageContext.slug} target="_blank" rel="noreferrer">
 
                             <LinkedInIcon style={{ color: "#0077b5", padding: '5px' }} />
 

@@ -29,7 +29,7 @@ const Header = ({ siteTitle }) => {
             <Typography  >
               <Link className="link" to="/" >
                 {/* CODE BLOG */}
-                <img className="logo" src={gatsbyIcon}/>
+                <img className="logo" src={gatsbyIcon} alt="logo"/>
         </Link>
             </Typography>
             <div className="head">
