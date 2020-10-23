@@ -70,7 +70,7 @@ const SinglePosts = ({ data, pageContext }) => {
             <div className={classes.root}></div>
             <Grid container >
 
-                <Grid item xs={8} >
+                <Grid item xs={12} lg={4} md={4} sm={6} >
                     <Card className={classes.root}>
                         <CardActionArea>
                             <Typography gutterBottom variant="h6" style={{textAlign:'center'}} component="h2">
@@ -130,7 +130,7 @@ const SinglePosts = ({ data, pageContext }) => {
                     </Card>
                         <DiscussionEmbed style={{width:'94%'}} shortname={disqusShortName} config={disqusConfig}/>
                 </Grid>
-                <Grid item xs={4} >
+                <Grid item xs={12} lg={4} md={4} sm={6} >
                     <Sidebar postAuthor={postAuthor} ImageURL={postDataObj.ImageURL} />
                 </Grid>
             </Grid>

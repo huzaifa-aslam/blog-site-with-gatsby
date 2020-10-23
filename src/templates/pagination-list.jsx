@@ -109,10 +109,10 @@ const PaginationList = ({ data, pageContext }) => {
             )
 
           })}
-          {/* <div className={classes.pagination}>
+          <div className={classes.pagination}>
 
-            <Pagination numberOfPosts={2} currentPage={currentPage}/>
-          </div> */}
+            {/* <Pagination numberOfPosts={2} currentPage={currentPage}/> */}
+          </div>
 
         </Grid>
 

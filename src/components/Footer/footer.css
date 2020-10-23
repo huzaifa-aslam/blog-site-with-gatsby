@@ -1,5 +1,9 @@
 .footer{
+    
     background-color: #4260b6;
     color: white;
-    text-align: center
+    text-align: center;
+    height: 65px;
+    padding-top: 17px;
+
 }

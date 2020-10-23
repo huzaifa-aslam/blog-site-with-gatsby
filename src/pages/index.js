@@ -23,10 +23,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const IndexPage = ({data}) => {
+  // let [numberOfPages,setNumberOfPages]=useState()
   const classes = useStyles();
   // let postPerPage
   // let numberOfPages;
-  console.log("data",data)
+  // console.log("data",data)
 
 
   return (
@@ -35,12 +36,14 @@ const IndexPage = ({data}) => {
       <SEO title="Code Blog" keyword={['gatsby', 'application', 'react']} />
       <div className={classes.root}>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} lg={8} md={8} sm={6}>
             <StaticQuery query= {postQuery}
               render={({ allMarkdownRemark }) => {
                 const getPosts = allMarkdownRemark.edges;
-                // postPerPage=2
-              //  let numberOfPages=Math.ceil(allMarkdownRemark.totalCount/postPerPage)
+              //  const postPerPage=2
+
+                //  setNumberOfPages(Math.ceil(allMarkdownRemark.totalCount/postPerPage))
+             
                 return (
 
                   getPosts.map(({ node }, index) => {
@@ -71,7 +74,7 @@ const IndexPage = ({data}) => {
               {/* <Pagination currentPage={1} numberOfPages={numberOfPages}/> */}
             </div>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} lg={4} md={4} sm={6}>
 
             <Sidebar />
           </Grid>

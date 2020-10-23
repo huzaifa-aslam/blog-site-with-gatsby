@@ -62,7 +62,6 @@ exports.createPages = async ({ actions, graphql }) => {
           imgUrl: authors.find(x => x.name == node.frontmatter.author).imgUrl
         }
       })
-
     })
     let tags = []
     let tagsCount = {}
@@ -124,9 +123,9 @@ exports.createPages = async ({ actions, graphql }) => {
     })
 
     // create team page
-    // let imgsUrl=[]
+    // let imgsUrl={}
     // authors.forEach(({ imgUrl }) => {
-    //   imgsUrl=imgsUrl.concat(imgUrl)
+    //   imgsUrl.push(imgUrl)
     //   // create single post page
 
     //   createPage({
@@ -136,8 +135,8 @@ exports.createPages = async ({ actions, graphql }) => {
     //       imgsUrl,
     //     }
     //   })
-
     // })
+    // console.log("imgsUrl",imgsUrl)
 
 
     // create Autho's post 
