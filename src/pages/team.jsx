@@ -68,7 +68,7 @@ const Team = () => {
 
           <Grid item xs={12} lg={8} md={8} sm={6}>
             <Typography style={{textAlign:'center'}} gutterBottom variant="h5" component="h2">
-              Our Team
+            Team
             </Typography>
 
             <Card className={classes.root}>
