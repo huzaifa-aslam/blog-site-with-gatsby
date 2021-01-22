@@ -23,6 +23,7 @@ const AuthorDetail = ({ ImageURL, postAuthor }) => {
     const classes = useStyles();
     // console.log("AuthorObj", ImageURL, postAuthor)
      // console.log("AuthorObj", ImageURL, postAuthor)
+     // console.log("AuthorObj", ImageURL, postAuthor)
     return (
         <Link to={`/author/${postAuthor.name}`}>
             <Card className={classes.root}>
