@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer">
             
             <Typography style={{textAlign:'center'}}  variant="h6" component="h2">
-            Copyright © 2021 Code Blog
+            Copyright © 2022 Code Blog
 
             </Typography>
             {/* <FacebookIcon color="primary" />
